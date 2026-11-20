@@ -144,12 +144,3 @@ app/src/main/kotlin/com/melodia/app/
    *Generates the installation APK at `app/build/outputs/apk/debug/app-debug.apk` (~25.4 MB, comfortably below the 50 MB requirement).*
 
 ---
-
-## 👥 Development Team
-
-- **Course**: CO3043 Mobile Application Development - Semester 241
-- **Institution**: Ho Chi Minh City University of Technology (HCMUT)
-- **Class**: CC01
-- **Group**: 14
-
----
