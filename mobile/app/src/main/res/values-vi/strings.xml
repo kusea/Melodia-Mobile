@@ -1,0 +1,118 @@
+<resources>
+    <string name="app_name">Melodia</string>
+
+    <!-- Navigation -->
+    <string name="nav_home">Trang chủ</string>
+    <string name="nav_search">Tìm kiếm</string>
+    <string name="nav_library">Thư viện</string>
+    <string name="nav_downloads">Tải xuống</string>
+
+    <!-- Home -->
+    <string name="welcome_back">CHÀO MỪNG TRỞ LẠI</string>
+    <string name="good_evening">Chào buổi tối ✨</string>
+    <string name="all_music">Âm nhạc</string>
+    <string name="podcasts">Podcasts</string>
+    <string name="quick_picks">Lựa chọn nhanh</string>
+    <string name="jump_back_in">Tiếp tục nghe</string>
+    <string name="pick_up_where_you_left_off">Bắt đầu lại ngay từ đoạn bạn dừng</string>
+    <string name="sonic_chemistry">HÒA ÂM CỦA BẠN</string>
+    <string name="your_match">Độ phù hợp 98%: Celestial Pulse</string>
+    <string name="match_desc">Bởi vì bạn thường xuyên nghe Synthwave &amp; Ambient</string>
+    <string name="made_for_you">Dành riêng cho bạn</string>
+    <string name="tuned_frequencies">Được tinh chỉnh cho tần số đêm muộn</string>
+    <string name="popular_artists">Nghệ sĩ nổi bật</string>
+    <string name="popular_artists_desc">Những người sáng tạo định hình gu âm nhạc của bạn</string>
+    <string name="follow">Theo dõi</string>
+    <string name="following">Đang theo dõi</string>
+    <string name="monthly_listeners">%1$s người nghe hàng tháng</string>
+
+    <!-- Player -->
+    <string name="now_playing">Đang phát</string>
+    <string name="playing_from_playlist">ĐANG PHÁT TỪ DANH SÁCH</string>
+    <string name="lossless_badge">Lossless 24-bit</string>
+    <string name="live_synced_lyrics">LỜI BÀI HÁT ĐỒNG BỘ</string>
+    <string name="lyrics">Lời bài hát</string>
+    <string name="now_singing">ĐANG HÁT</string>
+    <string name="queue">Hàng đợi</string>
+    <string name="clear_queue">Xóa hàng đợi</string>
+    <string name="up_next">Phát tiếp theo</string>
+
+    <!-- Search -->
+    <string name="search_placeholder">Bạn muốn nghe gì hôm nay?</string>
+    <string name="recent_searches">TÌM KIẾM GẦN ĐÂY</string>
+    <string name="clear_all">Xóa tất cả</string>
+    <string name="browse_all">Khám phá tất cả</string>
+    <string name="no_results_found">Không tìm thấy kết quả cho \"%1$s\"</string>
+    <string name="no_results_tips">Kiểm tra lại chính tả hoặc khám phá các chủ đề thịnh hành bên dưới.</string>
+    <string name="trending_soundscapes">Chủ đề thịnh hành</string>
+
+    <!-- Library -->
+    <string name="your_library">Thư viện của bạn</string>
+    <string name="liked_songs">Bài hát yêu thích</string>
+    <string name="pinned">Đã ghim</string>
+    <string name="create_playlist">Tạo danh sách phát</string>
+    <string name="new_playlist">Danh sách phát mới</string>
+    <string name="playlist_name">Tên danh sách phát</string>
+    <string name="playlist_description">Mô tả (tùy chọn)</string>
+    <string name="save">Lưu</string>
+    <string name="cancel">Hủy</string>
+    <string name="empty_library_title">Thư viện của bạn còn trống</string>
+    <string name="empty_library_desc">Khám phá hàng triệu bài hát và nghệ sĩ để tạo dấu ấn âm nhạc của riêng bạn.</string>
+    <string name="explore_trending">Khám phá nhạc thịnh hành</string>
+
+    <!-- Downloads -->
+    <string name="downloads">Tải xuống</string>
+    <string name="items_available_offline">%1$d bài hát sẵn sàng ngoại tuyến</string>
+    <string name="offline_mode_ready">Sẵn sàng nghe ngoại tuyến</string>
+    <string name="all_cached_ready">Tất cả tệp âm thanh đã được lưu mã hóa và sẵn sàng phát mọi nơi.</string>
+    <string name="device_storage">Bộ nhớ thiết bị</string>
+    <string name="storage_breakdown">Phân bổ bộ nhớ trong</string>
+    <string name="melodia_storage">Melodia (%1$s)</string>
+    <string name="free_storage">Trống (%1$s)</string>
+    <string name="wifi_only">Chỉ tải qua Wi-Fi</string>
+    <string name="active_downloads">Đang tải xuống</string>
+    <string name="downloading_speed">%1$s • %2$s MB/s</string>
+    <string name="pause_all">Tạm dừng tất cả</string>
+
+    <!-- Sleep Timer -->
+    <string name="sleep_timer">Hẹn giờ tắt</string>
+    <string name="set_sleep_timer">Thiết lập hẹn giờ</string>
+    <string name="fade_out_smoothly">Giảm âm lượng êm dịu trong 30 giây</string>
+    <string name="start_timer">Bắt đầu hẹn giờ (%1$d phút)</string>
+    <string name="timer_off">Tắt hẹn giờ</string>
+    <string name="end_of_track">Hết bài hát hiện tại</string>
+
+    <!-- Settings -->
+    <string name="settings">Cài đặt</string>
+    <string name="appearance">GIAO DIỆN</string>
+    <string name="theme">Chủ đề giao diện</string>
+    <string name="theme_dark">Tối</string>
+    <string name="theme_light">Sáng</string>
+    <string name="theme_system">Hệ thống</string>
+    <string name="sound_and_downloads">ÂM THANH &amp; TẢI XUỐNG</string>
+    <string name="audio_quality">Chất lượng âm thanh</string>
+    <string name="storage_cache">Bộ nhớ &amp; Bộ nhớ đệm</string>
+    <string name="clear_cache">Xóa bộ nhớ đệm</string>
+    <string name="offline_mode">Chế độ ngoại tuyến</string>
+    <string name="offline_mode_desc">Chỉ phát các bài hát đã tải về máy</string>
+    <string name="accessibility">TRỢ NĂNG</string>
+    <string name="text_scaling">Kích thước chữ &amp; Khả năng đọc</string>
+    <string name="text_scaling_desc">Hỗ trợ phóng to chữ lên đến 200% với dàn chữ tự động</string>
+
+    <!-- Song Actions -->
+    <string name="action_like">Thích bài hát này</string>
+    <string name="action_add_playlist">Thêm vào Danh sách phát</string>
+    <string name="action_play_next">Phát tiếp theo</string>
+    <string name="action_download">Tải xuống nghe ngoại tuyến</string>
+    <string name="action_view_album">Xem album</string>
+    <string name="action_view_artist">Xem trang nghệ sĩ</string>
+    <string name="action_close">Đóng</string>
+
+    <!-- Auth -->
+    <string name="sign_in">Đăng nhập</string>
+    <string name="sign_up">Đăng ký</string>
+    <string name="continue_guest">Tiếp tục với tư cách Khách (Nghe thử 30s)</string>
+    <string name="email_address">Địa chỉ email</string>
+    <string name="password">Mật khẩu</string>
+    <string name="guest_mode_alert">Chế độ khách: Bài hát đã tự động dừng sau 30 giây nghe thử. Vui lòng đăng nhập để nghe trọn vẹn.</string>
+</resources>
