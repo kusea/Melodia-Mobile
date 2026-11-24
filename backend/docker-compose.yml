@@ -1,0 +1,50 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: melodia-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: melodia
+      POSTGRES_PASSWORD: melodia_secret
+      POSTGRES_DB: melodia_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - melodia_pgdata:/var/lib/postgresql/data
+      - ./src/database/schema.sql:/docker-entrypoint-initdb.d/01_schema.sql:ro
+      - ./src/database/seed.sql:/docker-entrypoint-initdb.d/02_seed.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U melodia -d melodia_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: melodia-backend-api
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      PORT: 3000
+      NODE_ENV: production
+      DATABASE_URL: postgresql://melodia:melodia_secret@postgres:5432/melodia_db
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_USER: melodia
+      DB_PASSWORD: melodia_secret
+      DB_NAME: melodia_db
+      JWT_ACCESS_SECRET: melodia_super_secret_access_jwt_key_2026
+      JWT_REFRESH_SECRET: melodia_super_secret_refresh_jwt_key_2026
+      JWT_ACCESS_EXPIRES_IN: 900
+      JWT_REFRESH_EXPIRES_IN: 604800
+      CDN_BASE_URL: https://assets.melodia.example
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+volumes:
+  melodia_pgdata:
+    driver: local

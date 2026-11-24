@@ -1,6 +1,7 @@
 package com.melodia.app.data.repository
 
 import com.melodia.app.data.local.security.TokenStoreInterface
+import com.melodia.app.data.remote.api.MelodiaRemoteDataSource
 import com.melodia.app.domain.model.User
 import com.melodia.app.domain.repository.AuthRepository
 import kotlinx.coroutines.flow.Flow
@@ -8,7 +9,10 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import java.util.UUID
 
-class AuthRepositoryImpl(private val tokenStore: TokenStoreInterface) : AuthRepository {
+class AuthRepositoryImpl(
+    private val tokenStore: TokenStoreInterface,
+    private val remoteDataSource: MelodiaRemoteDataSource = MelodiaRemoteDataSource()
+) : AuthRepository {
 
     private val currentUserFlow = MutableStateFlow<User?>(
         // Default signed-in user as Alex Rivera from Figma mockup
@@ -28,6 +32,18 @@ class AuthRepositoryImpl(private val tokenStore: TokenStoreInterface) : AuthRepo
         if (email.isBlank() || password.length < 6) {
             return Result.failure(IllegalArgumentException("Invalid email or password (min 6 characters)"))
         }
+
+        // Attempt remote login with backend
+        val remoteResult = remoteDataSource.login(email, password)
+        if (remoteResult.isSuccess) {
+            val (remoteUser, token) = remoteResult.getOrThrow()
+            tokenStore.accessToken = token
+            tokenStore.userId = remoteUser.id
+            currentUserFlow.value = remoteUser
+            return Result.success(remoteUser)
+        }
+
+        // Fallback to local offline user session
         val user = User(
             id = "u_${UUID.randomUUID().toString().take(6)}",
             email = email,

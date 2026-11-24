@@ -3,6 +3,7 @@ package com.melodia.app.di
 import android.content.Context
 import com.melodia.app.data.local.preferences.SettingsDataStore
 import com.melodia.app.data.local.security.TokenStore
+import com.melodia.app.data.remote.api.MelodiaApiClient
 import com.melodia.app.data.repository.AuthRepositoryImpl
 import com.melodia.app.data.repository.CatalogRepositoryImpl
 import com.melodia.app.data.repository.DownloadRepositoryImpl
@@ -25,7 +26,11 @@ interface AppContainer {
 }
 
 class DefaultAppContainer(private val context: Context) : AppContainer {
-    override val tokenStore: TokenStore by lazy { TokenStore(context) }
+    override val tokenStore: TokenStore by lazy {
+        TokenStore(context).also {
+            MelodiaApiClient.initialize(it)
+        }
+    }
     override val settingsDataStore: SettingsDataStore by lazy { SettingsDataStore(context) }
     override val catalogRepository: CatalogRepository by lazy { CatalogRepositoryImpl() }
     override val playlistRepository: PlaylistRepository by lazy { PlaylistRepositoryImpl() }
