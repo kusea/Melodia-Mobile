@@ -48,10 +48,12 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.melodia.app.R
+import com.melodia.app.data.MockDataProvider
 import com.melodia.app.domain.model.Artist
 import com.melodia.app.domain.model.Playlist
 import com.melodia.app.domain.model.Song
@@ -61,6 +63,7 @@ import com.melodia.app.presentation.theme.DarkSurface
 import com.melodia.app.presentation.theme.DarkSurfaceElevated
 import com.melodia.app.presentation.theme.DeepVioletSeed
 import com.melodia.app.presentation.theme.HiResGold
+import com.melodia.app.presentation.theme.MelodiaTheme
 import com.melodia.app.presentation.theme.NeonViolet
 
 @Composable
@@ -387,5 +390,22 @@ private fun QuickPickCard(
                     .padding(end = 8.dp)
             )
         }
+    }
+}
+
+@Preview(showBackground = true, backgroundColor = 0xFF111015, showSystemUi = true)
+@Composable
+private fun HomeScreenPreview() {
+    MelodiaTheme {
+        HomeScreen(
+            quickPicks = MockDataProvider.mockSongs.take(6),
+            jumpBackIn = MockDataProvider.mockSongs.drop(2).take(4),
+            popularArtists = MockDataProvider.mockArtists,
+            curatedPlaylists = MockDataProvider.mockPlaylists,
+            onSongClick = {},
+            onArtistClick = {},
+            onPlaylistClick = {},
+            onOpenSettings = {}
+        )
     }
 }

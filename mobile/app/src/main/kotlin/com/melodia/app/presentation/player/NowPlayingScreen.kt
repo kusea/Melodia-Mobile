@@ -56,15 +56,18 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.melodia.app.R
+import com.melodia.app.data.MockDataProvider
 import com.melodia.app.domain.model.Song
 import com.melodia.app.presentation.theme.CyanAccent
 import com.melodia.app.presentation.theme.DarkBackground
 import com.melodia.app.presentation.theme.DarkSurfaceElevated
 import com.melodia.app.presentation.theme.HiResGold
+import com.melodia.app.presentation.theme.MelodiaTheme
 import com.melodia.app.presentation.theme.NeonViolet
 
 @Composable
@@ -392,5 +395,32 @@ fun NowPlayingScreen(
 
             Spacer(modifier = Modifier.height(32.dp))
         }
+    }
+}
+
+@Preview(showBackground = true, backgroundColor = 0xFF111015, showSystemUi = true)
+@Composable
+private fun NowPlayingScreenPreview() {
+    MelodiaTheme {
+        NowPlayingScreen(
+            song = MockDataProvider.mockSongs.first(),
+            isPlaying = true,
+            currentPositionMs = 84000L,
+            durationMs = 214000L,
+            isShuffle = false,
+            isRepeat = false,
+            onClose = {},
+            onTogglePlayPause = {},
+            onSeekTo = {},
+            onSkipNext = {},
+            onSkipPrevious = {},
+            onToggleShuffle = {},
+            onToggleRepeat = {},
+            onToggleFavorite = {},
+            onOpenLyrics = {},
+            onOpenQueue = {},
+            onOpenSleepTimer = {},
+            onOpenActionSheet = {}
+        )
     }
 }

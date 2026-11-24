@@ -30,13 +30,16 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
+import com.melodia.app.data.MockDataProvider
 import com.melodia.app.domain.model.Song
 import com.melodia.app.presentation.theme.CyanAccent
 import com.melodia.app.presentation.theme.DarkSurfaceElevated
 import com.melodia.app.presentation.theme.HiResGold
+import com.melodia.app.presentation.theme.MelodiaTheme
 import com.melodia.app.presentation.theme.NeonViolet
 
 @Composable
@@ -153,5 +156,21 @@ fun MiniPlayer(
                 trackColor = Color.Transparent
             )
         }
+    }
+}
+
+@Preview(showBackground = true, backgroundColor = 0xFF111015)
+@Composable
+private fun MiniPlayerPreview() {
+    MelodiaTheme {
+        MiniPlayer(
+            song = MockDataProvider.mockSongs.first(),
+            isPlaying = true,
+            currentPositionMs = 65000L,
+            durationMs = 214000L,
+            onClick = {},
+            onTogglePlayPause = {},
+            onSkipNext = {}
+        )
     }
 }
