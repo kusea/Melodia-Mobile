@@ -1,8 +1,5 @@
 # Melodia: High-Fidelity Mobile Music Streaming App
 
-**Ho Chi Minh City University of Technology (HCMUT) - CO3043 Mobile Application Development**  
-**Group 14 - Class CC01**
-
 Melodia is a cutting-edge native Android music streaming client built with modern **Kotlin**, **Jetpack Compose**, and **Material Design 3 (M3)**. Engineered with Clean Architecture and unidirectional data flow (UDF), Melodia delivers an immersive, studio-grade listening experience featuring 24-bit/192kHz Hi-Res Lossless audio streaming with **AndroidX Media3 ExoPlayer**, background playback via **MediaSessionService**, hardware-backed **AES-256-GCM** encryption for offline tracks, real-time synchronized lyrics (**Live Synced LRC Lyrics**), and an aesthetic Dark Theme tailored for modern audiophiles.
 
 ---
@@ -67,7 +64,7 @@ Melodia is a cutting-edge native Android music streaming client built with moder
 Melodia follows Google's recommended **Clean Architecture** combined with the **MVVM (Model-View-ViewModel)** architectural pattern:
 
 ```powershell
-app/src/main/kotlin/com/melodia/app/
+mobile/app/src/main/kotlin/com/melodia/app/
 ├── domain/                  # Enterprise & Business Logic Layer (Framework Independent)
 │   ├── model/               # Immutable domain entities (Song, Artist, Album, Playlist, User)
 │   └── repository/          # Repository interfaces defining business contracts
@@ -121,6 +118,13 @@ app/src/main/kotlin/com/melodia/app/
 
 ### Gradle Commands
 
+> [!NOTE]
+> All Gradle commands must be executed from inside the `mobile/` directory where `gradlew.bat` is located:
+
+```powershell
+cd mobile
+```
+
 1. **Compile Kotlin Sources**:
 
    ```powershell
@@ -141,6 +145,6 @@ app/src/main/kotlin/com/melodia/app/
    .\gradlew.bat assembleDebug
    ```
 
-   *Generates the installation APK at `app/build/outputs/apk/debug/app-debug.apk` (~25.4 MB, comfortably below the 50 MB requirement).*
+   *Generates the installation APK at `mobile/app/build/outputs/apk/debug/app-debug.apk` (~24.9 MB, comfortably below the 50 MB requirement).*
 
 ---
