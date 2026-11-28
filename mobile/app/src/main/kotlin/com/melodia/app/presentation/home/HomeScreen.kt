@@ -53,7 +53,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.melodia.app.R
-import com.melodia.app.data.MockDataProvider
+import com.melodia.app.data.remote.mock.MockDataProvider
 import com.melodia.app.domain.model.Artist
 import com.melodia.app.domain.model.Playlist
 import com.melodia.app.domain.model.Song
@@ -398,10 +398,10 @@ private fun QuickPickCard(
 private fun HomeScreenPreview() {
     MelodiaTheme {
         HomeScreen(
-            quickPicks = MockDataProvider.mockSongs.take(6),
-            jumpBackIn = MockDataProvider.mockSongs.drop(2).take(4),
-            popularArtists = MockDataProvider.mockArtists,
-            curatedPlaylists = MockDataProvider.mockPlaylists,
+            quickPicks = MockDataProvider.songs.take(6),
+            jumpBackIn = MockDataProvider.songs.drop(2).take(4),
+            popularArtists = MockDataProvider.artists,
+            curatedPlaylists = MockDataProvider.playlists,
             onSongClick = {},
             onArtistClick = {},
             onPlaylistClick = {},

@@ -63,9 +63,8 @@ object NetworkJsonParser {
             name = obj.optString("name", "Unknown Artist"),
             bio = obj.optString("bio", ""),
             imageUrl = obj.optString("image_url", obj.optString("imageUrl", "")),
-            bannerUrl = obj.optString("banner_url", obj.optString("bannerUrl", "")),
-            isVerified = obj.optBoolean("is_verified", true),
-            monthlyListeners = obj.optLong("monthly_listeners", 100000L)
+            monthlyListeners = obj.optString("monthly_listeners", obj.optString("monthlyListeners", "100K")),
+            isVerified = obj.optBoolean("is_verified", obj.optBoolean("isVerified", true))
         )
     }
 
@@ -78,15 +77,17 @@ object NetworkJsonParser {
     }
 
     fun parseAlbum(obj: JSONObject): Album {
+        val yearFallback = obj.optString("release_date", "2026").take(4).toIntOrNull() ?: 2026
         return Album(
             id = obj.optString("id", ""),
             title = obj.optString("title", "Untitled Album"),
             artist = obj.optString("artist_name", obj.optString("artist", "Various Artists")),
             artistId = obj.optString("artist_id", ""),
             coverUrl = obj.optString("cover_url", obj.optString("coverUrl", "")),
-            releaseYear = obj.optString("release_date", "2026").take(4),
-            genre = obj.optString("genre", "Synthwave"),
-            songCount = obj.optInt("song_count", 0)
+            releaseYear = obj.optInt("release_year", yearFallback),
+            trackCount = obj.optInt("track_count", obj.optInt("song_count", 0)),
+            durationSec = obj.optInt("duration_sec", obj.optInt("durationSec", 0)),
+            recordLabel = obj.optString("record_label", obj.optString("recordLabel", "Melodia Records"))
         )
     }
 

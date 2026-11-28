@@ -61,7 +61,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.melodia.app.R
-import com.melodia.app.data.MockDataProvider
+import com.melodia.app.data.remote.mock.MockDataProvider
 import com.melodia.app.domain.model.Song
 import com.melodia.app.presentation.theme.CyanAccent
 import com.melodia.app.presentation.theme.DarkBackground
@@ -403,7 +403,7 @@ fun NowPlayingScreen(
 private fun NowPlayingScreenPreview() {
     MelodiaTheme {
         NowPlayingScreen(
-            song = MockDataProvider.mockSongs.first(),
+            song = MockDataProvider.songs.first(),
             isPlaying = true,
             currentPositionMs = 84000L,
             durationMs = 214000L,
@@ -419,8 +419,7 @@ private fun NowPlayingScreenPreview() {
             onToggleFavorite = {},
             onOpenLyrics = {},
             onOpenQueue = {},
-            onOpenSleepTimer = {},
-            onOpenActionSheet = {}
+            onOpenSleepTimer = {}
         )
     }
 }

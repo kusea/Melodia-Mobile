@@ -34,7 +34,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
-import com.melodia.app.data.MockDataProvider
+import com.melodia.app.data.remote.mock.MockDataProvider
 import com.melodia.app.domain.model.Song
 import com.melodia.app.presentation.theme.CyanAccent
 import com.melodia.app.presentation.theme.DarkSurfaceElevated
@@ -164,13 +164,13 @@ fun MiniPlayer(
 private fun MiniPlayerPreview() {
     MelodiaTheme {
         MiniPlayer(
-            song = MockDataProvider.mockSongs.first(),
+            song = MockDataProvider.songs.first(),
             isPlaying = true,
-            currentPositionMs = 65000L,
+            progressMs = 65000L,
             durationMs = 214000L,
-            onClick = {},
             onTogglePlayPause = {},
-            onSkipNext = {}
+            onSkipNext = {},
+            onExpandNowPlaying = {}
         )
     }
 }
